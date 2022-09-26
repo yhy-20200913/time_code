@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      position: relative;
+    }
+    .page {
+      /* border: 1px solid red; */
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 400px;
+      height: 600px;
+      margin: auto;
+      margin-top: 50px;
+    }
+    .time1,
+    .time2 {
+      /* height: 100px; */
+      color: #77889a;
+      /* border: 1px solid; */
+      text-align: center;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .image {
+      /* margin-top: 100px; */
+      text-align: center;
+      /* border: 1px solid red; */
+      /* margin-left: 8px; */
+      margin-top: 10px;
+    }
+
+    .image img {
+      width: 230px;
+    }
+    .name {
+      color: #6d5bc9;
+      font-weight: bold;
+      font-size: 19px;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      function clockon() {
+        var now = new Date();
+        var year = now.getFullYear(); //getFullYear getYear
+        var month = now.getMonth();
+        var date = now.getDate();
+        var day = now.getDay();
+        var hour = now.getHours();
+        var minu = now.getMinutes();
+        var sec = now.getSeconds();
+        month = month + 1;
+        if (month < 10) month = "0" + month;
+        if (date < 10) date = "0" + date;
+        if (hour < 10) hour = "0" + hour;
+        if (minu < 10) minu = "0" + minu;
+        if (sec < 10) sec = "0" + sec;
+        var time = "";
+        time1 = year + " - " + month + " - " + date;
+        time2 = hour + " : " + minu + " : " + sec;
+        // console.log(time1)
+        // console.log(time2)
+        // console.log(document.getElementsByClassName("time1"))
+        document.getElementById("time1").innerHTML = time1
+        document.getElementById("time2").innerHTML = time2
+        // return time1,time2
+      }
+      clockon()
+      // setTimeout("clockon()", 1000);
+      setInterval(() => {
+        clockon()
+      }, 1000);
+
+    }
+</script>
+</head>
+<body>
+  <div class="page">
+    <div class="time1" id="time1"></div>
+    <div class="time2" id="time2"></div>
+    <div class="image">
+      <img src="./1.png" alt="">
+    </div>
+    <div class="name">王萱&nbsp;&nbsp;&nbsp;No.1906300138</div>
+  </div>
+</body>
+</html>
